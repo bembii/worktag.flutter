@@ -3,12 +3,12 @@ import '../Model/TimeEntry.dart';
 import '../States/TimeListEntryState.dart';
 
 class TimeListEntry extends StatefulWidget {
-  TimeEntry _TimeEntry;
+  TimeEntry timeEntry;
 
-  TimeListEntry(TimeEntry entry){
-    _TimeEntry = entry;
+  TimeListEntry(TimeEntry entry) : super(key: new Key(entry.toString()))  {
+    timeEntry = entry;
   }
 
   @override
-  TimeListEntryState createState() => new TimeListEntryState(_TimeEntry);
+  TimeListEntryState createState() => new TimeListEntryState();
 }

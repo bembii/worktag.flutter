@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
-import 'helper.dart';
 import 'Widgets/TimeList.dart';
+import 'Widgets/EditTimeScreen.dart';
 
-void main() => runApp(MyApp());
-final helper = new Helper();
+void main() {
+  runApp(new MaterialApp(
+    title: 'WorkTag',
+    home: new HomeScreen(),
+  ));
+}
 
-class MyApp extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'WorkTag',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('WorkTag'),
-        ),
-        body: Center(
-          child: TimeList(),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('WorkTag'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditTimeScreen(null)),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: TimeList(),
       ),
     );
   }

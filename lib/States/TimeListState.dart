@@ -1,56 +1,72 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 import '../helper.dart';
 import '../Model/TimeEntry.dart';
 import '../Widgets/TimeList.dart';
 import '../Widgets/TimeListEntry.dart';
 
 class TimeListState extends State<TimeList> {
-  final _entries = <TimeEntry>[];
+  List<TimeEntry> _data = new List();
+
+  void _addEntries(List<TimeEntry> entries) {
+    setState(() {
+      _data.clear();
+      _data.addAll(entries);
+    });
+  }
+
+  Future<Null> _onRefresh() {
+    Completer<Null> completer = new Completer<Null>();
+
+    widget.loadTimeEntries().then((entries) => _addEntries(entries));
+    completer.complete();
+
+    return completer.future;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
+    return Scaffold(
       appBar: AppBar(
-        title: Text('KW ' + Helper.getWeekYear(DateTime.now())),
+        title: Text('KW ' + Helper.getWeekYear(widget.date)),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.navigate_before),
+            onPressed: () {
+              setState(() {
+                widget.date = widget.date.add(new Duration(days: -7));
+              });
+              _onRefresh();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.calendar_today),
+            onPressed: () {
+              setState(() {
+                widget.date = DateTime.now();
+              });
+              _onRefresh();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.navigate_next),
+            onPressed: () {
+              setState(() {
+                widget.date = widget.date.add(new Duration(days: 7));
+              });
+              _onRefresh();
+            },
+          ),
+        ],
       ),
-      body: _buildSuggestions(),
+      body: new RefreshIndicator(
+          child: new ListView.builder(
+              itemCount: _data.length,
+              itemBuilder: (BuildContext ctx, int index) {
+                TimeEntry entry = _data[index];
+                return new TimeListEntry(entry);
+              }),
+          onRefresh: _onRefresh),
     );
-  }
-
-  Widget _buildSuggestions() {
-    return ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        // The itemBuilder callback is called once per suggested word pairing,
-        // and places each suggestion into a ListTile row.
-        // For even rows, the function adds a ListTile row for the word pairing.
-        // For odd rows, the function adds a Divider widget to visually
-        // separate the entries. Note that the divider may be difficult
-        // to see on smaller devices.
-        itemBuilder: (context, i) {
-          // Add a one-pixel-high divider widget before each row in theListView.
-          if (i.isOdd) return Divider();
-
-          // The syntax "i ~/ 2" divides i by 2 and returns an integer result.
-          // For example: 1, 2, 3, 4, 5 becomes 0, 1, 1, 2, 2.
-          // This calculates the actual number of word pairings in the ListView,
-          // minus the divider widgets.
-          final index = i ~/ 2;
-          // If you've reached the end of the available word pairings...
-          if (index >= _entries.length) {
-            // ...then generate 10 more and add them to the suggestions list.
-            for (int i = 0; i< 10;i++) {
-              TimeEntry entry = new TimeEntry();
-              entry.start = DateTime.now().add(new Duration(hours: -i));
-              entry.end = DateTime.now().add(new Duration(hours: i));
-              _entries.add(entry);
-            }
-          }
-          return _buildRow(_entries[index]);
-        }
-    );
-  }
-
-  Widget _buildRow(TimeEntry entry) {
-    return new TimeListEntry(entry);
   }
 }
