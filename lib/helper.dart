@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'Service/TimeEntryService.dart';
+import 'Service/TimeEntryService_MockBin.dart';
+
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
+
+
+class LogHelper{
+  static FirebaseAnalytics analytics = FirebaseAnalytics();
+  static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
+
+  static void log(String name, String message){
+    analytics.logEvent(
+      name: name,
+      parameters: <String, dynamic>{
+        'message': message,
+      });
+  }
+}
+
 class Helper {
   static final dateFormat = new DateFormat.yMd();
   static final timeFormat = new DateFormat.jm();
@@ -56,5 +76,9 @@ class Helper {
   static String convertDateToString(DateTime input) {
     if (input == null) return null;
     return dateFormat.format(input);
+  }
+
+  static TimeEntryService getService(){
+    return new TimeEntryService_MockBin();
   }
 }

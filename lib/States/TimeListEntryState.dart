@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import '../helper.dart';
 import '../Widgets/TimeListEntry.dart';
 import '../Widgets/EditTimeScreen.dart';
 
 class TimeListEntryState extends State<TimeListEntry> {
   static final weekdayFormatter = new DateFormat.E();
-  static final timeFormatter = new DateFormat.jm();
-  static final dateFormatter = new DateFormat.yMd();
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +13,11 @@ class TimeListEntryState extends State<TimeListEntry> {
 
     String weekday = weekdayFormatter.format(widget.timeEntry.start);
 
-    String start = timeFormatter.format(widget.timeEntry.start);
-    String end = timeFormatter.format(widget.timeEntry.end);
+    String start = Helper.convertTimeToString(widget.timeEntry.start);
+    String end = Helper.convertTimeToString(widget.timeEntry.end);
     String title = '$start - $end';
 
-    String subtitle = dateFormatter.format(widget.timeEntry.start);
+    String subtitle = Helper.convertDateToString(widget.timeEntry.start);
     if (widget.timeEntry.breakInMinutes != null)
       subtitle = '$subtitle - Break: ${widget.timeEntry.breakInMinutes}';
 

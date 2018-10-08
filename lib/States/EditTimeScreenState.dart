@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
+
+import '../Service/TimeEntryService.dart';
 import '../helper.dart';
 import '../Widgets/EditTimeScreen.dart';
 
@@ -227,7 +229,11 @@ class EditTimeScreenState extends State<EditTimeScreen> {
       print('Break: ${widget.timeEntry.breakInMinutes}');
       print('========================================');
       print('Submitting to back end...');
-      print('TODO - we will write the submission part next...');
+      var service = Helper.getService();
+      service.createTimeEntry(widget.timeEntry)
+          .then((value) =>
+          showMessage('New Entry created for ${widget.timeEntry.date.toIso8601String()}!', Colors.blue)
+      );
     }
   }
 
