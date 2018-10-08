@@ -1,0 +1,57 @@
+{
+  "@@last_modified": "2018-10-08T15:50:39.237413",
+  "title_date": "Date",
+  "@title_date": {
+    "description": "Title for the date of the Entry",
+    "type": "text",
+    "placeholders": {}
+  },
+  "title_start": "Start",
+  "@title_start": {
+    "description": "Title for the start of the Entry",
+    "type": "text",
+    "placeholders": {}
+  },
+  "title_end": "End",
+  "@title_end": {
+    "description": "Title for the end of the Entry",
+    "type": "text",
+    "placeholders": {}
+  },
+  "title_break": "Break",
+  "@title_break": {
+    "description": "Title for the break of the Entry",
+    "type": "text",
+    "placeholders": {}
+  },
+  "title_place": "Place",
+  "@title_place": {
+    "description": "Title for the place of the Entry",
+    "type": "text",
+    "placeholders": {}
+  },
+  "title_submit": "Submit",
+  "@title_submit": {
+    "description": "Title for the submit button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "title_modify": "Modify",
+  "@title_modify": {
+    "description": "Title for the modify button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "title_delete": "Delete",
+  "@title_delete": {
+    "description": "Title for the delete button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "screen_edit": "Edit Entry",
+  "@screen_edit": {
+    "description": "Title for the edit screen",
+    "type": "text",
+    "placeholders": {}
+  }
+}

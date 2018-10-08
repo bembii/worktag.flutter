@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import '../Localization/WorktagLocalizations.dart';
 import '../helper.dart';
 import '../Widgets/TimeListEntry.dart';
 import '../Widgets/EditTimeScreen.dart';
@@ -18,8 +19,9 @@ class TimeListEntryState extends State<TimeListEntry> {
     String title = '$start - $end';
 
     String subtitle = Helper.convertDateToString(widget.timeEntry.start);
-    if (widget.timeEntry.breakInMinutes != null)
-      subtitle = '$subtitle - Break: ${widget.timeEntry.breakInMinutes}';
+    if (widget.timeEntry.breakInMinutes != null &&
+        widget.timeEntry.breakInMinutes != 0)
+      subtitle = '$subtitle - ${WorktagLocalizations.of(context).title_break}: ${widget.timeEntry.breakInMinutes}';
 
     return new Card(
       child: new Column(
@@ -42,7 +44,7 @@ class TimeListEntryState extends State<TimeListEntry> {
             child: new ButtonBar(
               children: <Widget>[
                 new FlatButton(
-                  child: const Text('Modify'),
+                  child: Text(WorktagLocalizations.of(context).title_modify),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -55,7 +57,7 @@ class TimeListEntryState extends State<TimeListEntry> {
                 new FlatButton(
                   child: new Row(children: <Widget>[
                     const Icon(Icons.delete),
-                    const Text('Delete'),
+                    Text(WorktagLocalizations.of(context).title_delete),
                   ]),
                   color: Colors.red,
                   textColor: Colors.white,

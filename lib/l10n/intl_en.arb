@@ -1,0 +1,11 @@
+{
+    "title_date": "Date",
+    "title_start": "Start",
+    "title_end": "End",
+    "title_break": "Break",
+    "title_place": "Place",
+    "title_submit": "Submit",
+    "title_modify": "Modify",
+    "title_delete": "Delete",
+    "screen_edit": "Edit Entry"
+}

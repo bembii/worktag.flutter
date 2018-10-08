@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Model/TimeEntry.dart';
 import '../States/EditTimeScreenState.dart';
+import '../helper.dart';
 
 class EditTimeScreen extends StatefulWidget {
   TimeEntry timeEntry;
@@ -14,13 +15,24 @@ class EditTimeScreen extends StatefulWidget {
           timeEntry.date.year, timeEntry.date.month, timeEntry.date.day, 7, 30);
       timeEntry.end = new DateTime(
           timeEntry.date.year, timeEntry.date.month, timeEntry.date.day, 16, 0);
+      timeEntry.breakInMinutes = 0;
     }
   }
 
   @override
-  EditTimeScreenState createState() => new EditTimeScreenState();
+  EditTimeScreenState createState() {
+    LogHelper.analytics.setCurrentScreen(screenName: "EditScreen");
+    return new EditTimeScreenState();
+  }
 
   void save(BuildContext context) {
-    Navigator.pop(context);
+    var service = Helper.getService();
+    service.createTimeEntry(this.timeEntry)
+        .then((value)
+        {
+          LogHelper.analytics.setCurrentScreen(screenName: "MainScreen");
+          Navigator.pop(context);
+        }
+    );
   }
 }

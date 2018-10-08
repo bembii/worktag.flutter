@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
 
-import '../Service/TimeEntryService.dart';
+import '../Localization/WorktagLocalizations.dart';
 import '../helper.dart';
 import '../Widgets/EditTimeScreen.dart';
 
@@ -74,7 +74,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text("Edit Entry"),
+        title: Text(WorktagLocalizations.of(context).screen_edit),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.save),
@@ -99,7 +99,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       decoration: new InputDecoration(
                         icon: const Icon(Icons.calendar_today),
                         hintText: 'Enter the date',
-                        labelText: 'Date',
+                        labelText: WorktagLocalizations.of(context).title_date,
                       ),
                       controller: _controllerDate,
                       keyboardType: TextInputType.datetime,
@@ -122,7 +122,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       decoration: new InputDecoration(
                         icon: const Icon(Icons.timer),
                         hintText: 'Enter the start time',
-                        labelText: 'Start',
+                        labelText: WorktagLocalizations.of(context).title_start,
                       ),
                       controller: _controllerTimeStart,
                       keyboardType: TextInputType.datetime,
@@ -146,7 +146,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       decoration: new InputDecoration(
                         icon: const Icon(Icons.timer_off),
                         hintText: 'Enter the end time',
-                        labelText: 'End',
+                        labelText: WorktagLocalizations.of(context).title_end,
                       ),
                       controller: _controllerTimeEnd,
                       keyboardType: TextInputType.datetime,
@@ -165,19 +165,19 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                     )
                   ]),
                   new TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: new InputDecoration(
                       icon: const Icon(Icons.free_breakfast),
                       hintText: 'Enter the break in minutes',
-                      labelText: 'Break',
+                      labelText: WorktagLocalizations.of(context).title_break,
                     ),
                     keyboardType: TextInputType.number,
                     initialValue: widget.timeEntry.breakInMinutes.toString(),
                     onSaved: (val) => widget.timeEntry.breakInMinutes = int.parse(val),
                   ),
                   new InputDecorator(
-                    decoration: const InputDecoration(
+                    decoration: new InputDecoration(
                       icon: const Icon(Icons.work),
-                      labelText: 'Place',
+                      labelText: WorktagLocalizations.of(context).title_place,
                     ),
                     isEmpty: _place == '',
                     child: new DropdownButtonHideUnderline(
@@ -201,7 +201,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                   new Container(
                       padding: const EdgeInsets.only(left: 40.0, top: 20.0),
                       child: new RaisedButton(
-                        child: const Text('Submit'),
+                        child: Text(WorktagLocalizations.of(context).title_submit),
                         onPressed: _submitForm,
                       )),
                 ],
@@ -229,11 +229,10 @@ class EditTimeScreenState extends State<EditTimeScreen> {
       print('Break: ${widget.timeEntry.breakInMinutes}');
       print('========================================');
       print('Submitting to back end...');
-      var service = Helper.getService();
-      service.createTimeEntry(widget.timeEntry)
-          .then((value) =>
-          showMessage('New Entry created for ${widget.timeEntry.date.toIso8601String()}!', Colors.blue)
-      );
+
+      showMessage('Saving Entry...', Colors.blue);
+
+      widget.save(form.context);
     }
   }
 

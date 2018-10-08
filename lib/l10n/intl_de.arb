@@ -1,0 +1,11 @@
+{
+    "title_date": "Datum",
+    "title_start": "Start",
+    "title_end": "Ende",
+    "title_break": "Pause",
+    "title_place": "Ort",
+    "title_submit": "Speichern",
+    "title_modify": "Bearbeiten",
+    "title_delete": "Löschen",
+    "screen_edit": "Eintrag bearbeiten"
+}
