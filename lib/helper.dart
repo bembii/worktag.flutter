@@ -23,7 +23,7 @@ class LogHelper{
 
 class Helper {
   static final dateFormat = new DateFormat.yMd();
-  static DateFormat timeFormat = new DateFormat.jm();
+  static DateFormat timeFormat = new DateFormat.Hm();
 
   static int getWeek(DateTime date){
     final startOfYear = new DateTime(date.year, 1, 1, 0, 0);

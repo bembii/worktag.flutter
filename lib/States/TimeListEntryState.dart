@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../Localization/WorktagLocalizations.dart';
+
 import '../helper.dart';
+import '../Localization/WorktagLocalizations.dart';
 import '../Widgets/TimeListEntry.dart';
 import '../Widgets/EditTimeScreen.dart';
 
@@ -59,7 +60,7 @@ class TimeListEntryState extends State<TimeListEntry> {
                     const Icon(Icons.delete),
                     Text(WorktagLocalizations.of(context).title_delete),
                   ]),
-                  color: Colors.red,
+                  color: Theme.of(context).accentColor,
                   textColor: Colors.white,
                   onPressed: () {
                     /* ... */

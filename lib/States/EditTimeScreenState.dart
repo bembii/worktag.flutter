@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
 
-import '../Localization/WorktagLocalizations.dart';
 import '../helper.dart';
+import '../Localization/WorktagLocalizations.dart';
 import '../Widgets/EditTimeScreen.dart';
 
 class EditTimeScreenState extends State<EditTimeScreen> {
@@ -21,9 +21,12 @@ class EditTimeScreenState extends State<EditTimeScreen> {
   @override
   void initState() {
     super.initState();
-    _controllerDate = new TextEditingController(text: Helper.convertDateToString(widget.timeEntry.date));
-    _controllerTimeStart = new TextEditingController(text: Helper.convertTimeToString(widget.timeEntry.start));
-    _controllerTimeEnd = new TextEditingController(text: Helper.convertTimeToString(widget.timeEntry.end));
+    _controllerDate = new TextEditingController(
+        text: Helper.convertDateToString(widget.timeEntry.date));
+    _controllerTimeStart = new TextEditingController(
+        text: Helper.convertTimeToString(widget.timeEntry.start));
+    _controllerTimeEnd = new TextEditingController(
+        text: Helper.convertTimeToString(widget.timeEntry.end));
   }
 
   Future _chooseDate(BuildContext context, String initialDateString) async {
@@ -172,7 +175,8 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                     ),
                     keyboardType: TextInputType.number,
                     initialValue: widget.timeEntry.breakInMinutes.toString(),
-                    onSaved: (val) => widget.timeEntry.breakInMinutes = int.parse(val),
+                    onSaved: (val) =>
+                        widget.timeEntry.breakInMinutes = int.parse(val),
                   ),
                   new InputDecorator(
                     decoration: new InputDecoration(
@@ -199,17 +203,26 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                     ),
                   ),
                   new Container(
-                      padding: const EdgeInsets.only(left: 40.0, top: 20.0),
-                      child: new RaisedButton(
-                        child: Text(WorktagLocalizations.of(context).title_submit),
-                        onPressed: _submitForm,
-                      )),
+                    padding: const EdgeInsets.only(left: 40.0, top: 20.0),
+                    child: new FlatButton(
+                      child: new Row(children: <Widget>[
+                        const Icon(Icons.save),
+                        new Padding(padding: const EdgeInsets.only(left: 5.0)),
+                        Text(WorktagLocalizations.of(context).title_submit),
+                      ]),
+                      color: Theme.of(context).accentColor,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        /* ... */
+                      },
+                    ),
+                  ),
                 ],
               ))),
     );
   }
 
-  void showMessage(String message, [MaterialColor color = Colors.red]) {
+  void showMessage(String message, [Color color = Colors.red]) {
     _scaffoldKey.currentState.showSnackBar(
         new SnackBar(backgroundColor: color, content: new Text(message)));
   }
@@ -230,7 +243,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
       print('========================================');
       print('Submitting to back end...');
 
-      showMessage('Saving Entry...', Colors.blue);
+      showMessage('Saving Entry...', Theme.of(form.context).accentColor);
 
       widget.save(form.context);
     }

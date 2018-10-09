@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
+import 'Localization/WorktagLocalizations.dart';
 
 import 'helper.dart';
 import 'Widgets/TimeList.dart';
@@ -13,22 +13,23 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    TimeOfDayFormat timeFormat = MaterialLocalizations.of(context).timeOfDayFormat();
-    Helper.timeFormat = new DateFormat(timeFormat.toString());
-
     return MaterialApp(
       title: 'WorkTag',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: new Color.fromARGB(255, 255, 235, 51),
+        primaryColorLight: new Color.fromARGB(255, 255, 242, 128),
+        primaryColorDark: new Color.fromARGB(255, 230, 207, 0),
+        accentColor: new Color.fromARGB(255, 0, 107, 94),
+        //cardColor: new Color.fromARGB(255, 242, 254, 220),
       ),
       localizationsDelegates: [
+        const WorktagLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
       ],
       supportedLocales: [
-        const Locale('en', 'US'), // English
-        const Locale('de', 'DE'), // German
+        const Locale('en', ''), // English
+        const Locale('de', ''), // German
         // ... other locales the app supports
       ],
       navigatorObservers: <NavigatorObserver>[LogHelper.observer],
@@ -37,13 +38,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('WorkTag'),
+        backgroundColor: Theme.of(context).primaryColor,
+        primary: true,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),

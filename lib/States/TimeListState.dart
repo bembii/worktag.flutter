@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:intl/date_symbol_data_local.dart';
+
 import '../helper.dart';
 import '../Model/TimeEntry.dart';
 import '../Widgets/TimeList.dart';
@@ -25,10 +27,18 @@ class TimeListState extends State<TimeList> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('KW ' + Helper.getWeekYear(widget.date)),
+        backgroundColor: Theme.of(context).primaryColorLight,
+        primary: false,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.navigate_before),
