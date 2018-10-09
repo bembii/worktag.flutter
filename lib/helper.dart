@@ -24,8 +24,10 @@ class WeekHelper {
   static final _minusOneDay = new Duration(days: -1);
 
   static DateTime getWeekStart(DateTime date) {
+    int firstDay =
+        firstDayOfWeek == null || firstDayOfWeek == 0 ? 1 : firstDayOfWeek;
     DateTime weekStart = date;
-    while (weekStart.weekday != firstDayOfWeek) {
+    while (weekStart.weekday != firstDay) {
       weekStart = weekStart.add(_minusOneDay);
     }
     return weekStart;

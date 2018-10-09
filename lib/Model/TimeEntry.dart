@@ -16,12 +16,19 @@ class TimeEntry {
     int totalMinutes = this.getWorktimeInMinutes();
     int hours = totalMinutes ~/ 60;
     int minutes = totalMinutes % 60;
-    return "$hours:$minutes";
+
+    String minutesString;
+    if (minutes < 10)
+      minutesString = '0$minutes';
+    else
+      minutesString = '$minutes';
+
+    return '$hours:$minutesString';
   }
 
   @override
   String toString() {
-    return start.toIso8601String() + " - " + end.toIso8601String();
+    return '$start - $end';
   }
 
 }

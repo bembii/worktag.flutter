@@ -33,11 +33,12 @@ class TimeEntryService_MockBin extends TimeEntryService {
         List<TimeEntry> entries = new List();
         if (weekYear != null) {
           DateTime start = weekYear.start;
-          while (start.isBefore(weekYear.end)){
+          while (start.isBefore(weekYear.end)) {
             TimeEntry entry = new TimeEntry();
             entry.date = start;
-            entry.start = start.add(new Duration(hours: 8));
-            entry.end = start.add(new Duration(hours: 17));
+            entry.start =
+                new DateTime(start.year, start.month, start.day, 8, 30);
+            entry.end = new DateTime(start.year, start.month, start.day, 17);
             entry.breakInMinutes = 30;
             entries.add(entry);
 
@@ -56,8 +57,10 @@ class TimeEntryService_MockBin extends TimeEntryService {
     Map<String, dynamic> map = jsonDecode(json);
     var entry = new TimeEntry();
     entry.date = DateHelper.parseDate(map['date']);
-    entry.start = DateHelper.convertTimeToDate(DateHelper.parseTimeOfDay(map['start']));
-    entry.end = DateHelper.convertTimeToDate(DateHelper.parseTimeOfDay(map['end']));
+    entry.start =
+        DateHelper.convertTimeToDate(DateHelper.parseTimeOfDay(map['start']));
+    entry.end =
+        DateHelper.convertTimeToDate(DateHelper.parseTimeOfDay(map['end']));
     entry.breakInMinutes = int.parse(map['break']);
     return entry;
   }

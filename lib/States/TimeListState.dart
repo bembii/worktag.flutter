@@ -11,13 +11,18 @@ class TimeListState extends State<TimeList> {
   Future<List<TimeEntry>> _dataAsync;
 
   Future<void> _onRefresh() {
+    Completer<Null> completer = new Completer<Null>();
+
     setState(() {
       _dataAsync = widget.loadTimeEntries();
     });
+
+    completer.complete();
+    return completer.future;
   }
 
   Function _dateNowButtonPressed() {
-    if (widget.date.difference(DateTime.now()).inHours.abs() < 24)
+    if (DateHelper.equalsDate(widget.date, DateTime.now()))
       return null;
     else {
       return () {
@@ -92,15 +97,6 @@ class TimeListState extends State<TimeList> {
             }
           },
         )
-
-//      new RefreshIndicator(
-//          child: new ListView.builder(
-//              itemCount: _data.length,
-//              itemBuilder: (BuildContext ctx, int index) {
-//                TimeEntry entry = _data[index];
-//                return new TimeListEntry(entry);
-//              }),
-//          onRefresh: _onRefresh),
         );
   }
 }
