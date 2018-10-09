@@ -22,18 +22,18 @@ class EditTimeScreenState extends State<EditTimeScreen> {
   void initState() {
     super.initState();
     _controllerDate = new TextEditingController(
-        text: Helper.convertDateToString(widget.timeEntry.date));
+        text: DateHelper.convertDateToString(widget.timeEntry.date));
     _controllerTimeStart = new TextEditingController(
-        text: Helper.convertTimeToString(widget.timeEntry.start));
+        text: DateHelper.convertTimeToString(widget.timeEntry.start));
     _controllerTimeEnd = new TextEditingController(
-        text: Helper.convertTimeToString(widget.timeEntry.end));
+        text: DateHelper.convertTimeToString(widget.timeEntry.end));
   }
 
   Future _chooseDate(BuildContext context, String initialDateString) async {
     var now = new DateTime.now();
     var firstDate = now.add(new Duration(days: -100));
     var lastDate = now.add(new Duration(days: 100));
-    var initialDate = Helper.convertToDate(initialDateString) ?? now;
+    var initialDate = DateHelper.parseDate(initialDateString) ?? now;
     initialDate =
         (initialDate.isAfter(firstDate) && initialDate.isBefore(lastDate)
             ? initialDate
@@ -55,20 +55,20 @@ class EditTimeScreenState extends State<EditTimeScreen> {
   Future _chooseTime(
       bool start, BuildContext context, String initialTimeString) async {
     var now = new TimeOfDay.now();
-    var initialTime = Helper.convertToDate(initialTimeString) ?? now;
+    var initialTime = DateHelper.parseDate(initialTimeString) ?? now;
 
     var result =
         await showTimePicker(context: context, initialTime: initialTime);
 
     if (result == null) return;
 
-    DateTime dt = Helper.convertTimeToDate(result);
+    DateTime dt = DateHelper.convertTimeToDate(result);
 
     setState(() {
       if (start)
-        _controllerTimeStart.text = Helper.convertTimeToString(dt);
+        _controllerTimeStart.text = DateHelper.convertTimeToString(dt);
       else
-        _controllerTimeEnd.text = Helper.convertTimeToString(dt);
+        _controllerTimeEnd.text = DateHelper.convertTimeToString(dt);
     });
   }
 
@@ -109,7 +109,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       validator: (val) =>
                           isValidDate(val) ? null : 'Not a valid date',
                       onSaved: (val) =>
-                          widget.timeEntry.date = Helper.convertToDate(val),
+                          widget.timeEntry.date = DateHelper.parseDate(val),
                     )),
                     new IconButton(
                       icon: new Icon(Icons.more_horiz),
@@ -132,8 +132,8 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       validator: (val) =>
                           isValidTime(val) ? null : 'Not a valid time',
                       onSaved: (val) => widget.timeEntry.start =
-                          Helper.convertTimeToDate(
-                              Helper.convertToTimeOfDay(val)),
+                          DateHelper.convertTimeToDate(
+                              DateHelper.parseTimeOfDay(val)),
                     )),
                     new IconButton(
                       icon: new Icon(Icons.more_horiz),
@@ -156,8 +156,8 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       validator: (val) =>
                           isValidTime(val) ? null : 'Not a valid time',
                       onSaved: (val) => widget.timeEntry.start =
-                          Helper.convertTimeToDate(
-                              Helper.convertToTimeOfDay(val)),
+                          DateHelper.convertTimeToDate(
+                              DateHelper.parseTimeOfDay(val)),
                     )),
                     new IconButton(
                       icon: new Icon(Icons.more_horiz),
@@ -251,13 +251,13 @@ class EditTimeScreenState extends State<EditTimeScreen> {
 
   bool isValidDate(String value) {
     if (value.isEmpty) return false;
-    var d = Helper.convertToDate(value);
+    var d = DateHelper.parseDate(value);
     return d != null;
   }
 
   bool isValidTime(String value) {
     if (value.isEmpty) return false;
-    var d = Helper.convertToTimeOfDay(value);
+    var d = DateHelper.parseTimeOfDay(value);
     return d != null;
   }
 }

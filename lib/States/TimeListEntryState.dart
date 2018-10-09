@@ -15,11 +15,11 @@ class TimeListEntryState extends State<TimeListEntry> {
 
     String weekday = weekdayFormatter.format(widget.timeEntry.start);
 
-    String start = Helper.convertTimeToString(widget.timeEntry.start);
-    String end = Helper.convertTimeToString(widget.timeEntry.end);
+    String start = DateHelper.convertTimeToString(widget.timeEntry.start);
+    String end = DateHelper.convertTimeToString(widget.timeEntry.end);
     String title = '$start - $end';
 
-    String subtitle = Helper.convertDateToString(widget.timeEntry.start);
+    String subtitle = DateHelper.convertDateToString(widget.timeEntry.start);
     if (widget.timeEntry.breakInMinutes != null &&
         widget.timeEntry.breakInMinutes != 0)
       subtitle = '$subtitle - ${WorktagLocalizations.of(context).title_break}: ${widget.timeEntry.breakInMinutes}';

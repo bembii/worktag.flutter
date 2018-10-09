@@ -7,44 +7,84 @@ import 'Service/TimeEntryService_MockBin.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 
-
-class LogHelper{
+class LogHelper {
   static FirebaseAnalytics analytics = FirebaseAnalytics();
-  static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
 
-  static void log(String name, String message){
-    analytics.logEvent(
-      name: name,
-      parameters: <String, dynamic>{
-        'message': message,
-      });
+  static void log(String name, String message) {
+    analytics.logEvent(name: name, parameters: <String, dynamic>{
+      'message': message,
+    });
   }
 }
 
-class Helper {
+class WeekHelper {
+  static final firstDayOfWeek = new DateFormat().dateSymbols.FIRSTDAYOFWEEK;
+  static final _minusOneDay = new Duration(days: -1);
+
+  static DateTime getWeekStart(DateTime date) {
+    DateTime weekStart = date;
+    while (weekStart.weekday != firstDayOfWeek) {
+      weekStart = weekStart.add(_minusOneDay);
+    }
+    return weekStart;
+  }
+
+  static int getWeekOfYear(DateTime date) {
+    final weekYearStartDate = _getWeekYearStartDateForDate(date);
+    final dayDiff = date.difference(weekYearStartDate).inDays;
+    return ((dayDiff + 1) / 7).ceil();
+  }
+
+  static DateTime _getWeekYearStartDateForDate(DateTime date) {
+    int weekYear = getWeekYear(date);
+    return _getWeekYearStartDate(weekYear);
+  }
+
+  static int getWeekYear(DateTime date) {
+    //assert(date.isUtc);
+
+    final weekYearStartDate = _getWeekYearStartDate(date.year);
+
+    // in previous week year?
+    if (weekYearStartDate.isAfter(date)) {
+      return date.year - 1;
+    }
+
+    // in next week year?
+    final nextWeekYearStartDate = _getWeekYearStartDate(date.year + 1);
+    if (nextWeekYearStartDate.isBefore(date) ||
+        DateHelper.equalsDate(nextWeekYearStartDate, date)) {
+      return date.year + 1;
+    }
+
+    return date.year;
+  }
+
+  static DateTime _getWeekYearStartDate(int year) {
+    final firstDayOfYear = DateTime.utc(year, 1, 1);
+    final dayOfWeek = firstDayOfYear.weekday;
+    if (dayOfWeek <= DateTime.thursday) {
+      return firstDayOfYear.add(new Duration(days: 1 - dayOfWeek));
+    } else {
+      return firstDayOfYear.add(new Duration(days: 8 - dayOfWeek));
+    }
+  }
+}
+
+class DateHelper {
   static final dateFormat = new DateFormat.yMd();
   static DateFormat timeFormat = new DateFormat.Hm();
 
-  static int getWeek(DateTime date){
-    final startOfYear = new DateTime(date.year, 1, 1, 0, 0);
-    final firstMonday = startOfYear.weekday;
-    final daysInFirstWeek = 8 - firstMonday;
-    final diff = date.difference(startOfYear);
-    var weeks = ((diff.inDays - daysInFirstWeek) / 7).ceil();
-    // It might differ how you want to treat the first week
-    if(daysInFirstWeek > 3) {
-      weeks += 1;
-    }
-    return weeks;
+  static bool equalsDate(DateTime a, DateTime b) {
+    if (a.year != b.year) return false;
+    if (a.month != b.month) return false;
+    if (a.day != b.day) return false;
+    return true;
   }
 
-  static String getWeekYear(DateTime date){
-    int week = getWeek(date);
-    int year = date.year;
-    return week.toString() + "/" + year.toString();
-  }
-
-  static TimeOfDay convertToTimeOfDay(String input) {
+  static TimeOfDay parseTimeOfDay(String input) {
     try {
       var d = timeFormat.parseStrict(input);
       return new TimeOfDay.fromDateTime(d);
@@ -64,7 +104,7 @@ class Helper {
     return new DateTime(dt.year, dt.month, dt.day, input.hour, input.minute);
   }
 
-  static DateTime convertToDate(String input) {
+  static DateTime parseDate(String input) {
     try {
       var d = dateFormat.parseStrict(input);
       return d;
@@ -77,8 +117,16 @@ class Helper {
     if (input == null) return null;
     return dateFormat.format(input);
   }
+}
 
-  static TimeEntryService getService(){
+class Helper {
+  static String getWeekYearString(DateTime date) {
+    int week = WeekHelper.getWeekOfYear(date);
+    int year = WeekHelper.getWeekYear(date);
+    return week.toString() + "/" + year.toString();
+  }
+
+  static TimeEntryService getService() {
     return new TimeEntryService_MockBin();
   }
 }
