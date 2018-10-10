@@ -38,6 +38,7 @@ class TimeListState extends State<TimeList> {
   void initState() {
     super.initState();
     initializeDateFormatting();
+    _onRefresh();
   }
 
   @override
@@ -78,7 +79,7 @@ class TimeListState extends State<TimeList> {
               (BuildContext context, AsyncSnapshot<List<TimeEntry>> snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
-                return const Text('Press button to start');
+                return const Text('Loading...');
               case ConnectionState.waiting:
                 return const Center(child: const CircularProgressIndicator(),);
               default:

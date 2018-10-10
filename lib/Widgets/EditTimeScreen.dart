@@ -8,6 +8,7 @@ class EditTimeScreen extends StatefulWidget {
 
   EditTimeScreen(TimeEntry entry) : super(key: new Key(entry.toString())) {
     timeEntry = entry;
+    // TODO: Einstellungen für Standardwerte
     if (timeEntry == null) {
       timeEntry = new TimeEntry();
       timeEntry.date = DateTime.now();

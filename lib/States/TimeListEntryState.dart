@@ -36,6 +36,7 @@ class TimeListEntryState extends State<TimeListEntry> {
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
+                    // TODO Einstellung für Arbeitszeit
                     color: widget.timeEntry.getWorktimeInMinutes() >= 480
                         ? Colors.green
                         : Colors.red))),
@@ -63,7 +64,7 @@ class TimeListEntryState extends State<TimeListEntry> {
                   color: Theme.of(context).accentColor,
                   textColor: Colors.white,
                   onPressed: () {
-                    /* ... */
+                    // TODO: Löschen
                   },
                 ),
               ],

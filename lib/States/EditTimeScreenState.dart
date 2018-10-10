@@ -213,7 +213,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       color: Theme.of(context).accentColor,
                       textColor: Colors.white,
                       onPressed: () {
-                        /* ... */
+                        _submitForm();
                       },
                     ),
                   ),
@@ -222,7 +222,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
     );
   }
 
-  void showMessage(String message, [Color color = Colors.red]) {
+  void showMessage(String message, Color color) {
     _scaffoldKey.currentState.showSnackBar(
         new SnackBar(backgroundColor: color, content: new Text(message)));
   }
@@ -231,20 +231,10 @@ class EditTimeScreenState extends State<EditTimeScreen> {
     final FormState form = _formKey.currentState;
 
     if (!form.validate()) {
-      showMessage('Form is not valid!  Please review and correct.');
+      showMessage('Form is not valid!  Please review and correct.', Theme.of(form.context).errorColor);
     } else {
       form.save(); //This invokes each onSaved event
-
-      print('Form save called, newContact is now up to date...');
-      print('Date: ${widget.timeEntry.date}');
-      print('Start: ${widget.timeEntry.start}');
-      print('End: ${widget.timeEntry.end}');
-      print('Break: ${widget.timeEntry.breakInMinutes}');
-      print('========================================');
-      print('Submitting to back end...');
-
       showMessage('Saving Entry...', Theme.of(form.context).accentColor);
-
       widget.save(form.context);
     }
   }
