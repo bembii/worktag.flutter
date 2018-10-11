@@ -24,6 +24,7 @@ dependencies:
   intl: 
   intl_translation:
   firebase_analytics: ^0.3.3
+  cloud_firestore:
 
 dev_dependencies:
   flutter_test:

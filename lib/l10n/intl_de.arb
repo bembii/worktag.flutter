@@ -7,5 +7,7 @@
     "title_submit": "Speichern",
     "title_modify": "Bearbeiten",
     "title_delete": "Löschen",
+    "title_cancel": "Abbrechen",
+    "question_delete": "Möchten Sie den Eintrag wirklich löschen?",
     "screen_edit": "Eintrag bearbeiten"
 }

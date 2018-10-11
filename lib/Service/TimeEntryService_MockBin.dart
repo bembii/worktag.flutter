@@ -12,11 +12,26 @@ class TimeEntryService_MockBin extends TimeEntryService {
   static final _headers = {'Content-Type': 'application/json'};
 
   @override
-  Future<TimeEntry> createTimeEntry(TimeEntry entry) async {
+  Future<TimeEntry> saveTimeEntry(TimeEntry entry) async {
     try {
       String json = _toJson(entry);
       final response =
           await http.post(_serviceUrl, headers: _headers, body: json);
+      var c = _fromJson(response.body);
+      return c;
+    } catch (e) {
+      print('Server Exception!!!');
+      print(e);
+      return null;
+    }
+  }
+
+  @override
+  Future deleteTimeEntry(TimeEntry entry) async {
+    try {
+      String json = _toJson(entry);
+      final response =
+      await http.post(_serviceUrl, headers: _headers, body: json);
       var c = _fromJson(response.body);
       return c;
     } catch (e) {
@@ -69,7 +84,7 @@ class TimeEntryService_MockBin extends TimeEntryService {
     var mapData = new Map();
     mapData["date"] = DateHelper.convertDateToString(entry.date);
     mapData["start"] = DateHelper.convertTimeToString(entry.start);
-    mapData["end"] = DateHelper.convertTimeToString(entry.start);
+    mapData["end"] = DateHelper.convertTimeToString(entry.end);
     mapData["break"] = entry.breakInMinutes.toString();
     String json = jsonEncode(mapData);
     return json;

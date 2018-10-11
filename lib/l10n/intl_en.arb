@@ -7,5 +7,7 @@
     "title_submit": "Submit",
     "title_modify": "Modify",
     "title_delete": "Delete",
+    "title_cancel": "Cancel",
+    "question_delete": "Would you really like to delete this entry?",
     "screen_edit": "Edit Entry"
 }

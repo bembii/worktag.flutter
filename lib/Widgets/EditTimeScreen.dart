@@ -28,11 +28,11 @@ class EditTimeScreen extends StatefulWidget {
 
   void save(BuildContext context) {
     var service = Helper.getService();
-    service.createTimeEntry(this.timeEntry)
+    service.saveTimeEntry(this.timeEntry)
         .then((value)
         {
           LogHelper.analytics.setCurrentScreen(screenName: "MainScreen");
-          Navigator.pop(context);
+          Navigator.of(context).pop(true);
         }
     );
   }

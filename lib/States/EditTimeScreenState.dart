@@ -155,7 +155,7 @@ class EditTimeScreenState extends State<EditTimeScreen> {
                       keyboardType: TextInputType.datetime,
                       validator: (val) =>
                           isValidTime(val) ? null : 'Not a valid time',
-                      onSaved: (val) => widget.timeEntry.start =
+                      onSaved: (val) => widget.timeEntry.end =
                           DateHelper.convertTimeToDate(
                               DateHelper.parseTimeOfDay(val)),
                     )),

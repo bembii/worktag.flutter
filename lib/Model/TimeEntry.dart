@@ -1,4 +1,5 @@
 class TimeEntry {
+  String ID;
   DateTime date;
   DateTime start;
   DateTime end;

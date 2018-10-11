@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 import 'Service/TimeEntryService.dart';
 import 'Service/TimeEntryService_MockBin.dart';
+import 'Service/TimeEntryService_CloudFirestore.dart';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -128,7 +129,12 @@ class Helper {
     return week.toString() + "/" + year.toString();
   }
 
+  static TimeEntryService _service;
+
   static TimeEntryService getService() {
-    return new TimeEntryService_MockBin();
+    if (_service == null) {
+      _service = new TimeEntryService_CloudFirestore();
+    }
+    return _service;
   }
 }

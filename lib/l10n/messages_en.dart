@@ -20,8 +20,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "question_delete" : MessageLookupByLibrary.simpleMessage("Would you really like to delete this entry?"),
     "screen_edit" : MessageLookupByLibrary.simpleMessage("Edit Entry"),
     "title_break" : MessageLookupByLibrary.simpleMessage("Break"),
+    "title_cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
     "title_date" : MessageLookupByLibrary.simpleMessage("Date"),
     "title_delete" : MessageLookupByLibrary.simpleMessage("Delete"),
     "title_end" : MessageLookupByLibrary.simpleMessage("End"),

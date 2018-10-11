@@ -85,6 +85,22 @@ class WorktagLocalizations {
     );
   }
 
+  String get title_cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'title_cancel',
+      desc: 'Title for the cancel button',
+    );
+  }
+
+  String get question_delete {
+    return Intl.message(
+      'Would you really like to delete this entry?',
+      name: 'question_delete',
+      desc: 'Question for deletion of entry',
+    );
+  }
+
   String get screen_edit {
     return Intl.message(
       'Edit Entry',

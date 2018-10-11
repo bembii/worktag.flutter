@@ -22,7 +22,8 @@ class TimeListEntryState extends State<TimeListEntry> {
     String subtitle = DateHelper.convertDateToString(widget.timeEntry.start);
     if (widget.timeEntry.breakInMinutes != null &&
         widget.timeEntry.breakInMinutes != 0)
-      subtitle = '$subtitle - ${WorktagLocalizations.of(context).title_break}: ${widget.timeEntry.breakInMinutes}';
+      subtitle =
+          '$subtitle - ${WorktagLocalizations.of(context).title_break}: ${widget.timeEntry.breakInMinutes}';
 
     return new Card(
       child: new Column(
@@ -64,7 +65,37 @@ class TimeListEntryState extends State<TimeListEntry> {
                   color: Theme.of(context).accentColor,
                   textColor: Colors.white,
                   onPressed: () {
-                    // TODO: Löschen
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: new Text(
+                              WorktagLocalizations.of(context).title_delete),
+                          content: new Text(
+                              WorktagLocalizations.of(context).question_delete),
+                          actions: <Widget>[
+                            new FlatButton(
+                              child: new Text(WorktagLocalizations.of(context)
+                                  .title_cancel),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            new FlatButton(
+                              child: new Text(WorktagLocalizations.of(context)
+                                  .title_delete),
+                              onPressed: () {
+                                Helper.getService()
+                                    .deleteTimeEntry(widget.timeEntry)
+                                    .then((v) {
+                                  Navigator.of(context).pop();
+                                });
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   },
                 ),
               ],
