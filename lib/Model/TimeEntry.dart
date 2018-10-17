@@ -15,6 +15,10 @@ class TimeEntry {
 
   String getWorktime() {
     int totalMinutes = this.getWorktimeInMinutes();
+    return getMinutesAsString(totalMinutes);
+  }
+
+  static String getMinutesAsString(int totalMinutes) {
     int hours = totalMinutes ~/ 60;
     int minutes = totalMinutes % 60;
 

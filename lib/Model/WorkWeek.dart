@@ -7,11 +7,12 @@ class WorkWeek {
   int year;
 
   static WorkWeek fromDate(DateTime date) {
-    DateTime weekStart = WeekHelper.getWeekStart(date);
+    DateTime dateToUse = DateTime.utc(date.year, date.month, date.day);
+    DateTime weekStart = WeekHelper.getWeekStart(dateToUse);
 
     WorkWeek week = new WorkWeek();
     week.start = weekStart;
-    week.end = weekStart.add(new Duration(days: 7));
+    week.end = weekStart.add(new Duration(days: 6));
     week.week = WeekHelper.getWeekOfYear(weekStart);
     week.year = WeekHelper.getWeekYear(weekStart);
     return week;

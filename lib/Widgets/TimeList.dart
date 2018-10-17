@@ -13,9 +13,11 @@ class TimeList extends StatefulWidget {
     this.date = DateTime.now();
   }
 
-  Future<List<TimeEntry>> loadTimeEntries() {
+  Future<List<TimeEntry>> loadTimeEntries() async {
     WorkWeek week = WorkWeek.fromDate(this.date);
-    return Helper.getService().getTimeEntries(week);
+    List<TimeEntry> list = await Helper.getService().getTimeEntries(week);
+    list.sort((a, b) => a.date.compareTo(b.date));
+    return list;
   }
 
   @override

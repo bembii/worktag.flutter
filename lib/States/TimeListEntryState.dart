@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../helper.dart';
+import '../Model/Settings.dart';
 import '../Localization/WorktagLocalizations.dart';
 import '../Widgets/TimeListEntry.dart';
 import '../Widgets/EditTimeScreen.dart';
@@ -13,13 +14,13 @@ class TimeListEntryState extends State<TimeListEntry> {
   Widget build(BuildContext context) {
     if (widget.timeEntry == null) return Text('NULL');
 
-    String weekday = weekdayFormatter.format(widget.timeEntry.start);
+    String weekday = weekdayFormatter.format(widget.timeEntry.date);
 
     String start = DateHelper.convertTimeToString(widget.timeEntry.start);
     String end = DateHelper.convertTimeToString(widget.timeEntry.end);
     String title = '$start - $end';
 
-    String subtitle = DateHelper.convertDateToString(widget.timeEntry.start);
+    String subtitle = DateHelper.convertDateToString(widget.timeEntry.date);
     if (widget.timeEntry.breakInMinutes != null &&
         widget.timeEntry.breakInMinutes != 0)
       subtitle =
@@ -37,8 +38,7 @@ class TimeListEntryState extends State<TimeListEntry> {
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
-                    // TODO Einstellung für Arbeitszeit
-                    color: widget.timeEntry.getWorktimeInMinutes() >= 480
+                    color: widget.timeEntry.getWorktimeInMinutes() >= Settings.DefaultWorktimePerDay
                         ? Colors.green
                         : Colors.red))),
           ),

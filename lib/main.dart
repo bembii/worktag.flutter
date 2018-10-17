@@ -58,6 +58,69 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      drawer: new Drawer(
+        child: new ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountEmail: const Text(
+                'test@test.de',
+                style: const TextStyle(color: Colors.white),
+              ),
+              accountName: const Text(
+                'test',
+                style: const TextStyle(color: Colors.white),
+              ),
+              decoration: BoxDecoration(
+                image: new DecorationImage(
+                  image: new ExactAssetImage('assets/images/bg_time.jpg'),
+                  fit: BoxFit.fill,
+                ),
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.add),
+              title: const Text('Add'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditTimeScreen(null)),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditTimeScreen(null)),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Info'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LicensePage(
+                            applicationName: 'WorkTag',
+                            applicationVersion: '1.0.0',
+                            applicationLegalese:
+                                'Developed by Tobias Vogelbruch',
+                          )),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: TimeList(),
       ),
