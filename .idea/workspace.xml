@@ -7,13 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ac45d00-9738-4ead-a034-018c56740185" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/Model/Settings.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/States/SettingsScreenState.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/States/SplashScreenState.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Widgets/SettingsScreen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Widgets/SplashScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/TimeEntry.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/TimeEntry.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/WorkWeek.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/WorkWeek.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/bg_time.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/bg_time.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Model/Settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/Settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Service/TimeEntryService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Service/WorktagService.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Service/TimeEntryService_CloudFirestore.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Service/WorktagService_CloudFirestore.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Service/TimeEntryService_MockBin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Service/WorktagService_MockBin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/States/TimeListEntryState.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/States/TimeListEntryState.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/States/TimeListState.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/States/TimeListState.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Widgets/TimeList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/TimeList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helper.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -25,6 +31,7 @@
     <ignored path="android/key.properties" />
     <ignored path="android/app/google-services.json" />
     <ignored path="ios/Runner/GoogleService-Info.plist" />
+    <ignored path="assets/icon/Thumbs.db" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +44,8 @@
       <file leaf-file-name="TimeListState.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/States/TimeListState.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
+            <state relative-caret-position="247">
+              <caret line="108" column="80" selection-start-line="108" selection-start-column="80" selection-end-line="108" selection-end-column="80" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -46,20 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeEntry.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Model/TimeEntry.dart">
+      <file leaf-file-name="Settings.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Model/Settings.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeEntryService.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Service/TimeEntryService.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            <state relative-caret-position="225">
+              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -67,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/helper.dart">
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+            <state relative-caret-position="399">
+              <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -79,53 +77,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorkWeek.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Model/WorkWeek.dart">
+      <file leaf-file-name="WorktagService_CloudFirestore.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Service/WorktagService_CloudFirestore.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeEntryService_CloudFirestore.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Service/TimeEntryService_CloudFirestore.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeEntryService_MockBin.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Service/TimeEntryService_MockBin.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="83" column="15" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="15" />
+            <state relative-caret-position="309">
+              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditTimeScreen.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Widgets/EditTimeScreen.dart">
+      <file leaf-file-name="SplashScreen.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Widgets/SplashScreen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditTimeScreenState.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/States/EditTimeScreenState.dart">
+      <file leaf-file-name="TimeListEntry.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Widgets/TimeListEntry.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3555">
-              <caret line="244" column="4" selection-start-line="244" selection-start-column="4" selection-end-line="244" selection-end-column="4" />
+            <state relative-caret-position="75">
+              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -136,8 +116,44 @@
       <file leaf-file-name="TimeListEntryState.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/States/TimeListEntryState.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="34" column="41" lean-forward="true" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+            <state relative-caret-position="600">
+              <caret line="40" column="65" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingsScreenState.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/States/SettingsScreenState.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2415">
+              <caret line="161" column="38" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SplashScreenState.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/States/SplashScreenState.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeList.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Widgets/TimeList.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -180,29 +196,36 @@
         <option value="$PROJECT_DIR$/lib/Localization/WorktagLocalizations.dart" />
         <option value="$PROJECT_DIR$/lib/l10n/intl_en.arb" />
         <option value="$PROJECT_DIR$/lib/l10n/intl_de.arb" />
-        <option value="$PROJECT_DIR$/lib/Service/TimeEntryService.dart" />
-        <option value="$PROJECT_DIR$/lib/Service/TimeEntryService_MockBin.dart" />
-        <option value="$PROJECT_DIR$/lib/Service/TimeEntryService_CloudFirestore.dart" />
         <option value="$PROJECT_DIR$/lib/Widgets/EditTimeScreen.dart" />
         <option value="$PROJECT_DIR$/lib/Widgets/HomeScreen.dart" />
         <option value="$PROJECT_DIR$/lib/States/HomeScreenState.dart" />
         <option value="$PROJECT_DIR$/lib/Widgets/TimeListEntry.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/States/EditTimeScreenState.dart" />
         <option value="$PROJECT_DIR$/lib/Model/TimeEntry.dart" />
-        <option value="$PROJECT_DIR$/lib/Model/Settings.dart" />
         <option value="$PROJECT_DIR$/lib/Widgets/TimeList.dart" />
-        <option value="$PROJECT_DIR$/lib/States/TimeListEntryState.dart" />
-        <option value="$PROJECT_DIR$/lib/helper.dart" />
         <option value="$PROJECT_DIR$/lib/Model/WorkWeek.dart" />
+        <option value="$PROJECT_DIR$/lib/Service/TimeEntryService.dart" />
+        <option value="$PROJECT_DIR$/lib/Service/TimeEntryService_CloudFirestore.dart" />
+        <option value="$PROJECT_DIR$/lib/Service/TimeEntryService_MockBin.dart" />
+        <option value="$PROJECT_DIR$/lib/helper.dart" />
+        <option value="$PROJECT_DIR$/lib/Service/WorktagService_MockBin.dart" />
+        <option value="$PROJECT_DIR$/lib/Service/WorktagService.dart" />
+        <option value="$PROJECT_DIR$/lib/Service/WorktagService_CloudFirestore.dart" />
+        <option value="$PROJECT_DIR$/lib/States/TimeListEntryState.dart" />
+        <option value="$PROJECT_DIR$/lib/States/SettingsScreenState.dart" />
+        <option value="$PROJECT_DIR$/lib/Widgets/SettingsScreen.dart" />
+        <option value="$PROJECT_DIR$/lib/Model/Settings.dart" />
+        <option value="$PROJECT_DIR$/lib/Widgets/SplashScreen.dart" />
+        <option value="$PROJECT_DIR$/lib/States/SplashScreenState.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/States/TimeListState.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="308" />
-    <option name="y" value="317" />
+    <option name="x" value="513" />
+    <option name="y" value="254" />
     <option name="width" value="1591" />
     <option name="height" value="956" />
   </component>
@@ -212,9 +235,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,6 +297,9 @@
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,6 +310,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/States" />
+      <recent name="$PROJECT_DIR$/lib/Widgets" />
       <recent name="$PROJECT_DIR$/lib/l10n" />
     </key>
   </component>
@@ -426,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539282560352</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="App Drawer">
+      <created>1539761713714</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1539761713714</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -444,41 +476,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="308" y="317" width="1591" height="956" extended-state="0" />
+    <frame x="513" y="254" width="1591" height="956" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49903163" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4970949" weight="0.3282887" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3692705" side_tool="true" visible="true" weight="0.2805588" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.33634603" side_tool="true" visible="true" weight="0.3282887" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.32890365" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.66688186" weight="0.3282887" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4945126" weight="0.3282887" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.66365397" visible="true" weight="0.3282887" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.493867" weight="0.3282887" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="right" id="Flutter Outline" order="3" weight="0.32989025" />
       <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24919303" />
-      <window_info anchor="right" id="Assistant" weight="0.32989025" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.71923745" visible="true" weight="0.24919303" />
+      <window_info id="Structure" order="1" sideWeight="0.28076255" side_tool="true" visible="true" weight="0.24919303" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6307295" weight="0.5029104" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6300839" weight="0.5029104" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Flutter Inspector" order="3" weight="0.32989025" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49774048" weight="0.3282887" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Assistant" order="4" weight="0.32989025" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4996772" weight="0.3286334" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49903163" weight="0.3282887" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -520,7 +552,8 @@
     <MESSAGE value="Anpassungen für Android" />
     <MESSAGE value="Kommentare" />
     <MESSAGE value="Cloud Firestore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cloud Firestore" />
+    <MESSAGE value="App Drawer" />
+    <option name="LAST_COMMIT_MESSAGE" value="App Drawer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -531,47 +564,10 @@
           <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="63" />
+      <option name="time" value="65" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/States/EditTimeScreenState.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3405">
-          <caret line="234" column="32" selection-start-line="234" selection-start-column="32" selection-end-line="234" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/helper.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Model/TimeEntry.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -798,61 +794,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+    <entry file="file://$PROJECT_DIR$/lib/States/EditTimeScreenState.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+        <state relative-caret-position="3555">
+          <caret line="244" column="4" selection-start-line="244" selection-start-column="4" selection-end-line="244" selection-end-column="4" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Model/Settings.dart">
+    <entry file="file://$PROJECT_DIR$/lib/Service/WorktagService_MockBin.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Widgets/TimeList.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Widgets/TimeListEntry.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="63" selection-start-line="12" selection-start-column="63" selection-end-line="12" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Service/TimeEntryService.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Service/TimeEntryService_CloudFirestore.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Service/TimeEntryService_MockBin.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="83" column="15" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="15" />
+        <state relative-caret-position="441">
+          <caret line="90" column="29" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -866,47 +821,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Widgets/EditTimeScreen.dart">
+    <entry file="file://$PROJECT_DIR$/lib/Model/WorkWeek.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/States/EditTimeScreenState.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3555">
-          <caret line="244" column="4" selection-start-line="244" selection-start-column="4" selection-end-line="244" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state>
+          <caret selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/helper.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Service/WorktagService.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Widgets/EditTimeScreen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Model/WorkWeek.dart">
+    <entry file="file://$PROJECT_DIR$/lib/Widgets/SettingsScreen.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Service/WorktagService_CloudFirestore.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Model/Settings.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Widgets/TimeListEntry.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/States/TimeListEntryState.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="34" column="41" lean-forward="true" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+        <state relative-caret-position="600">
+          <caret line="40" column="65" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/States/SettingsScreenState.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="161" column="38" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Widgets/SplashScreen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/States/SplashScreenState.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Widgets/TimeList.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -915,8 +957,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/States/TimeListState.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
+        <state relative-caret-position="247">
+          <caret line="108" column="80" selection-start-line="108" selection-start-column="80" selection-end-line="108" selection-end-column="80" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

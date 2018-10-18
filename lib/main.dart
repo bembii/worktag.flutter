@@ -3,10 +3,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'Localization/WorktagLocalizations.dart';
 
 import 'helper.dart';
+import 'Model/Settings.dart';
 import 'Widgets/TimeList.dart';
 import 'Widgets/EditTimeScreen.dart';
+import 'Widgets/SettingsScreen.dart';
+import 'Widgets/SplashScreen.dart';
 
 void main() {
+  Settings.loadInstance();
   runApp(new MyApp());
 }
 
@@ -33,7 +37,12 @@ class MyApp extends StatelessWidget {
         // ... other locales the app supports
       ],
       navigatorObservers: <NavigatorObserver>[LogHelper.observer],
-      home: HomeScreen(),
+      routes: <String, WidgetBuilder>{
+        '/Home': (BuildContext context) => new HomeScreen(),
+        'Settings': (BuildContext context) => new SettingsScreen(),
+        'AddTime': (BuildContext context) => new EditTimeScreen(null),
+      },
+      home: new SplashScreen(),
     );
   }
 }
@@ -50,10 +59,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => EditTimeScreen(null)),
-              );
+              Navigator.of(context).pushNamed('AddTime');
             },
           ),
         ],
@@ -84,10 +90,7 @@ class HomeScreen extends StatelessWidget {
               title: const Text('Add'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditTimeScreen(null)),
-                );
+                Navigator.of(context).pushNamed('AddTime');
               },
             ),
             ListTile(
@@ -95,10 +98,7 @@ class HomeScreen extends StatelessWidget {
               title: const Text('Settings'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditTimeScreen(null)),
-                );
+                Navigator.of(context).pushNamed('Settings');
               },
             ),
             ListTile(

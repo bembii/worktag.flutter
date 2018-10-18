@@ -2,12 +2,12 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-import 'TimeEntryService.dart';
+import 'WorktagService.dart';
 import '../Model/TimeEntry.dart';
 import '../Model/WorkWeek.dart';
-import '../helper.dart';
+import '../Model/Settings.dart';
 
-class TimeEntryService_MockBin extends TimeEntryService {
+class WorktagService_MockBin extends WorktagService {
   static const _serviceUrl = 'http://mockbin.org/echo';
   static final _headers = {'Content-Type': 'application/json'};
 
@@ -31,7 +31,7 @@ class TimeEntryService_MockBin extends TimeEntryService {
     try {
       String json = _toJson(entry);
       final response =
-      await http.post(_serviceUrl, headers: _headers, body: json);
+          await http.post(_serviceUrl, headers: _headers, body: json);
       var c = _fromJson(response.body);
       return c;
     } catch (e) {
@@ -70,23 +70,23 @@ class TimeEntryService_MockBin extends TimeEntryService {
 
   TimeEntry _fromJson(String json) {
     Map<String, dynamic> map = jsonDecode(json);
-    var entry = new TimeEntry();
-    entry.date = DateHelper.parseDate(map['date']);
-    entry.start =
-        DateHelper.convertTimeToDate(DateHelper.parseTimeOfDay(map['start']));
-    entry.end =
-        DateHelper.convertTimeToDate(DateHelper.parseTimeOfDay(map['end']));
-    entry.breakInMinutes = int.parse(map['break']);
-    return entry;
+    return timeEntryFromMap(map);
   }
 
   String _toJson(TimeEntry entry) {
-    var mapData = new Map();
-    mapData["date"] = DateHelper.convertDateToString(entry.date);
-    mapData["start"] = DateHelper.convertTimeToString(entry.start);
-    mapData["end"] = DateHelper.convertTimeToString(entry.end);
-    mapData["break"] = entry.breakInMinutes.toString();
+    var mapData = timeEntryToMap(entry);
     String json = jsonEncode(mapData);
     return json;
   }
+
+  @override
+  Future<Settings> loadSettings() async {
+    return Future.delayed(new Duration(milliseconds: 500), () {
+      Settings settings = new Settings();
+      return settings;
+    });
+  }
+
+  @override
+  Future saveSettings() async {}
 }

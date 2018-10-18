@@ -54,6 +54,7 @@ flutter:
 
   assets:
     - assets/images/bg_time.jpg
+    - assets/icon/icon.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:intl/date_symbol_data_local.dart';
 
 import '../helper.dart';
 import '../Model/TimeEntry.dart';
@@ -41,7 +40,6 @@ class TimeListState extends State<TimeList> {
   @override
   void initState() {
     super.initState();
-    initializeDateFormatting();
     _onRefresh();
   }
 
@@ -100,17 +98,16 @@ class TimeListState extends State<TimeList> {
                               return new ListTile(
                                 leading: const Icon(Icons.info),
                                 title: new Text(
-                                    'Arbeitszeit: ${this._getWorktime(snapshot.data)}'),
+                                    'Arbeitszeit: ${this._getWorktimeString(snapshot.data)}'),
                                 subtitle: new Text.rich(new TextSpan(children: [
-                                  new TextSpan(text: 'Abweichung:'),
+                                  new TextSpan(text: 'Abweichung: '),
                                   new TextSpan(
                                       text:
-                                          this._getWorktimeDiff(snapshot.data),
+                                          this._getWorktimeDiffString(snapshot.data),
                                       style: new TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18.0,
-                                          color: 0 >=
-                                                  Settings.DefaultWorktimePerDay
+                                          color: this._getWorktime(snapshot.data) >=
+                                                  Settings.instance.defaultWorktimePerWeek
                                               ? Colors.green
                                               : Colors.red)),
                                 ])),
@@ -127,16 +124,19 @@ class TimeListState extends State<TimeList> {
         ));
   }
 
-  String _getWorktime(List<TimeEntry> times) {
+  int _getWorktime(List<TimeEntry> times) {
     int time = 0;
     for (TimeEntry t in times) time += t.getWorktimeInMinutes();
-    return TimeEntry.getMinutesAsString(time);
+    return time;
   }
 
-  String _getWorktimeDiff(List<TimeEntry> times) {
-    int time = 0;
-    for (TimeEntry t in times) time += t.getWorktimeInMinutes();
-    int totalMinutes = time - Settings.DefaultWorktimePerWeek;
+  String _getWorktimeString(List<TimeEntry> times) {
+    return TimeEntry.getMinutesAsString(this._getWorktime(times));
+  }
+
+  String _getWorktimeDiffString(List<TimeEntry> times) {
+    int time = this._getWorktime(times);
+    int totalMinutes = time - Settings.instance.defaultWorktimePerWeek;
     return TimeEntry.getMinutesAsString(totalMinutes);
   }
 }

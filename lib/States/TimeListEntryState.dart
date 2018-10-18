@@ -38,7 +38,7 @@ class TimeListEntryState extends State<TimeListEntry> {
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
-                    color: widget.timeEntry.getWorktimeInMinutes() >= Settings.DefaultWorktimePerDay
+                    color: widget.timeEntry.getWorktimeInMinutes() >= Settings.instance.defaultWorktimePerDay
                         ? Colors.green
                         : Colors.red))),
           ),

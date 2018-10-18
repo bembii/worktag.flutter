@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'Service/TimeEntryService.dart';
-import 'Service/TimeEntryService_MockBin.dart';
-import 'Service/TimeEntryService_CloudFirestore.dart';
+import 'Service/WorktagService.dart';
+import 'Service/WorktagService_MockBin.dart';
+import 'Service/WorktagService_CloudFirestore.dart';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -129,11 +129,11 @@ class Helper {
     return week.toString() + "/" + year.toString();
   }
 
-  static TimeEntryService _service;
+  static WorktagService _service;
 
-  static TimeEntryService getService() {
+  static WorktagService getService() {
     if (_service == null) {
-      _service = new TimeEntryService_CloudFirestore();
+      _service = new WorktagService_CloudFirestore();
     }
     return _service;
   }

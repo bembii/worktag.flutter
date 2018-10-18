@@ -2,12 +2,13 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'TimeEntryService.dart';
+import 'WorktagService.dart';
 import '../Model/TimeEntry.dart';
 import '../Model/WorkWeek.dart';
+import '../Model/Settings.dart';
 import '../helper.dart';
 
-class TimeEntryService_CloudFirestore extends TimeEntryService {
+class WorktagService_CloudFirestore extends WorktagService {
   Firestore _firestore;
 
   Future<Firestore> _resolveFirestore() async {
@@ -22,13 +23,20 @@ class TimeEntryService_CloudFirestore extends TimeEntryService {
     final db = await _resolveFirestore();
     final week = WorkWeek.fromDate(entry.date);
     TimeEntry newEntry = entry;
-    await db
-        .document('/users/test/years/${week.year}/weeks/${week.week}')
-        .collection('entries')
-        .add(_toDocument(entry))
-        .then((v) {
-          entry.ID = v.documentID;
-        });
+
+    if (entry.ID == null) {
+      await db
+          .document('/users/test/years/${week.year}/weeks/${week.week}')
+          .collection('entries')
+          .add(timeEntryToMap(entry))
+          .then((v) {
+        newEntry.ID = v.documentID;
+      });
+    } else {
+      await db
+          .document('/users/test/years/${week.year}/weeks/${week.week}/entries/${entry.ID}')
+          .updateData(timeEntryToMap(entry));
+    }
     return newEntry;
   }
 
@@ -36,7 +44,10 @@ class TimeEntryService_CloudFirestore extends TimeEntryService {
   Future deleteTimeEntry(TimeEntry entry) async {
     final db = await _resolveFirestore();
     final week = WorkWeek.fromDate(entry.date);
-    await db.document('/users/test/years/${week.year}/weeks/${week.week}/entries/${entry.ID}').delete();
+    await db
+        .document(
+            '/users/test/years/${week.year}/weeks/${week.week}/entries/${entry.ID}')
+        .delete();
   }
 
   @override
@@ -50,7 +61,7 @@ class TimeEntryService_CloudFirestore extends TimeEntryService {
         .then((v) {
       print('Got ${v.documents.length} Documents');
       for (DocumentSnapshot d in v.documents) {
-        TimeEntry entry = _fromDocument(d.data);
+        TimeEntry entry = timeEntryFromMap(d.data);
         entry.ID = d.documentID;
         entries.add(entry);
       }
@@ -58,21 +69,16 @@ class TimeEntryService_CloudFirestore extends TimeEntryService {
     return entries;
   }
 
-  TimeEntry _fromDocument(Map<String, dynamic> map) {
-    var entry = new TimeEntry();
-    entry.date = map['date'];
-    entry.start = map['start'];
-    entry.end = map['end'];
-    entry.breakInMinutes = map['break'];
-    return entry;
+  @override
+  Future<Settings> loadSettings() async{
+    Settings settings;
+    final db = await _resolveFirestore();
+    await db.document('/users/test/settings/default').get().then((d) {
+      settings = settingsFromMap(d.data);
+    });
+    return settings;
   }
 
-  Map<String, dynamic> _toDocument(TimeEntry entry) {
-    Map<String, dynamic> map = new Map<String, dynamic>();
-    map["date"] = entry.date;
-    map["start"] = entry.start;
-    map["end"] = entry.end;
-    map["break"] = entry.breakInMinutes;
-    return map;
-  }
+  @override
+  Future saveSettings() {}
 }
